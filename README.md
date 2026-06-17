@@ -14,10 +14,9 @@ Terdapat dua versi script yang bisa Anda gunakan: **Versi Standar** dan **Versi 
 2. **ai_detector_advanced.py (Versi Advanced / Ensemble)**
    - **Multi-layered Detection:** Menggunakan pendekatan berlapis untuk akurasi maksimal.
    - **Layer 1 (Metadata EXIF):** Mengekstraksi informasi EXIF gambar untuk mencari jejak tersembunyi parameter AI (seperti nama *software* atau metadata *prompt* dari Stable Diffusion).
-   - **Layer 2 & 3 (Ensemble 3 Model):** Jika metadata bersih, script akan meluncurkan tiga model AI berbeda secara bersamaan:
-     1. Model ViT Umum (`dima806/ai_vs_real_image_detection`) - Bobot 40%
-     2. Model ViT CIFAKE (`capcheck/ai-image-detection`) - Bobot 35%
-     3. Model SigLIP (`Ateeqq/ai-vs-human-image-detector`) - Bobot 25%
+   - **Layer 2 & 3 (Ensemble SOTA Model):** Jika metadata bersih, script akan meluncurkan dua model pendeteksi AI *State-of-the-Art* (Generasi Terbaru) secara bersamaan:
+     1. Model SigLIP Deepfake (`Ateeqq/ai-vs-human-image-detector`) - Bobot 60%. Sangat tangguh mendeteksi foto kamera nyata vs manipulasi sintetis.
+     2. Model SMOGY Advanced (`Smogy/SMOGY-Ai-images-detector`) - Bobot 40%. Dilatih khusus untuk menangkap generator modern seperti Midjourney v6, DALL-E 3, dan Flux.
    - **Sistem Voting:** Menganalisis probabilitas dari ketiga model dan mengkalkulasi vonis akhir berdasarkan sistem *weighted voting* untuk meminimalkan salah deteksi (False Positive/Negative).
 
 ## 🛠️ Instalasi & Persiapan

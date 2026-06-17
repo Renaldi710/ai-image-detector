@@ -10,22 +10,17 @@ warnings.filterwarnings("ignore")
 # Definisi konstanta generator AI umum untuk pencarian Metadata
 KNOWN_AI_SOFTWARE_TAGS = ['midjourney', 'dall-e', 'stable diffusion', 'novelai', 'comfyui', 'fooocus', 'automatic1111']
 
-# Definisi Arsitektur Ensemble
+# Definisi Arsitektur Ensemble (VERSI OP / OVERPOWERED)
 MODELS = [
     {
-        "name": "Model 1 (ViT General)",
-        "id": "dima806/ai_vs_real_image_detection",
-        "weight": 0.40 # Bobot terbesar karena performa generalisasinya baik
-    },
-    {
-        "name": "Model 2 (ViT CIFAKE)",
-        "id": "capcheck/ai-image-detection",
-        "weight": 0.35 # Bobot kedua, sangat bagus untuk membedakan art/synthetic
-    },
-    {
-        "name": "Model 3 (SigLIP Deepfake)",
+        "name": "Model 1 (SigLIP Deepfake SOTA)",
         "id": "Ateeqq/ai-vs-human-image-detector",
-        "weight": 0.25 # Arsitektur modern sebagai penyeimbang
+        "weight": 0.60 # Arsitektur SigLIP yang sangat tangguh terhadap manipulasi nyata vs sintetis
+    },
+    {
+        "name": "Model 2 (SMOGY Advanced)",
+        "id": "Smogy/SMOGY-Ai-images-detector",
+        "weight": 0.40 # Model SOTA terbaru untuk generator modern (Midjourney v6, DALL-E 3, Flux)
     }
 ]
 
@@ -130,13 +125,13 @@ def run_ensemble(image_path, pipelines):
     
     print("\n  VONIS:")
     if final_fake > 85.0:
-        print("  >> 🔴 SANGAT MUNGKIN HASIL GENERATE AI (Sintetis) <<")
+        print("  >> SANGAT MUNGKIN HASIL GENERATE AI (Sintetis) <<")
     elif final_fake > 60.0:
-        print("  >> 🟠 CENDERUNG HASIL GENERATE AI (Kemungkinan ada editan AI) <<")
+        print("  >> CENDERUNG HASIL GENERATE AI (Kemungkinan ada editan AI) <<")
     elif final_real > 85.0:
-        print("  >> 🟢 SANGAT MUNGKIN GAMBAR ASLI KUALITAS TINGGI <<")
+        print("  >> SANGAT MUNGKIN GAMBAR ASLI KUALITAS TINGGI <<")
     else:
-        print("  >> 🟡 CENDERUNG GAMBAR ASLI (Namun skor tidak begitu meyakinkan) <<")
+        print("  >> CENDERUNG GAMBAR ASLI (Namun skor tidak begitu meyakinkan) <<")
     print("="*60)
 
 def main():
@@ -155,7 +150,7 @@ def main():
         print("                KESIMPULAN AKHIR (METADATA)                 ")
         print("="*60)
         print(f"  [!] {reason}")
-        print("\n  VONIS: \n  >> 🔴 100% HASIL GENERATE AI (Terbukti dari Metadata) <<")
+        print("\n  VONIS: \n  >> 100% HASIL GENERATE AI (Terbukti dari Metadata) <<")
         print("="*60)
         return
         
