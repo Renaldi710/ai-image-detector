@@ -1,0 +1,10 @@
+# Abaikan semua file gambar di root atau folder lain
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.bmp
+
+# Tapi JANGAN abaikan folder test_images dan isinya
+!test_images/
+!test_images/*
