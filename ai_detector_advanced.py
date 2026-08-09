@@ -24,6 +24,7 @@ MODELS = [
     }
 ]
 
+# // Fungsi untuk mengecek metadata EXIF dan tanda tangan AI pada gambar
 def check_metadata(image_path):
     print("[*] Tahap 1: Analisis Metadata (EXIF/Tanda Tangan AI)...")
     try:
@@ -54,6 +55,7 @@ def check_metadata(image_path):
     print("    [+] Metadata EXIF bersih. Melanjutkan ke lapisan Deep Learning.")
     return False, ""
 
+# // Fungsi untuk memuat model-model AI (Ensemble) yang dibutuhkan
 def load_models():
     print("\n[*] Tahap 2: Memuat Ensemble Model AI")
     print("    (Peringatan: Membutuhkan RAM cukup besar. Loading mungkin agak lama...)")
@@ -68,6 +70,7 @@ def load_models():
             
     return pipelines
 
+# // Fungsi untuk menjalankan proses deteksi menggunakan model ensemble
 def run_ensemble(image_path, pipelines):
     print("\n[*] Tahap 3: Menjalankan Analisis Visi Komputer & Pembobotan (Voting)...")
     try:
@@ -134,6 +137,7 @@ def run_ensemble(image_path, pipelines):
         print("  >> CENDERUNG GAMBAR ASLI (Namun skor tidak begitu meyakinkan) <<")
     print("="*60)
 
+# // Fungsi utama untuk menjalankan program analisis gambar
 def main():
     parser = argparse.ArgumentParser(description="Pendeteksi Gambar AI Lanjutan (Ensemble 3 Model + EXIF)")
     parser.add_argument("image_path", help="Path ke gambar yang ingin dianalisis secara mendalam")
