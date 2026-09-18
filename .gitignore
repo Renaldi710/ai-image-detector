@@ -5,6 +5,19 @@
 *.webp
 *.bmp
 
-# Tapi JANGAN abaikan folder test_images dan isinya
+# Tapi JANGAN abaikan folder test_images dan dataset
 !test_images/
 !test_images/*
+!dataset/
+!dataset/*
+!dataset/**/*
+
+# Credentials & Kaggle (JANGAN DI-COMMIT)
+kaggle.json
+*.token
+
+# Archives
+*.zip
+*.rar
+temp_dataset.zip
+
